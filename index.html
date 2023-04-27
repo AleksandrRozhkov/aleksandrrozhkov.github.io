@@ -1,8 +1,191 @@
-<html>
+<!DOCTYPE HTML>
+<html lang="ru">
 <head>
-<title>Александр Рожков</title>
-</head>
-<body>
-<h1>Александр Рожков</h1>
+
+<title>Рожков Александр</title>
+<script language="javascript" src="resources/js/jquery-3.6.4.min.js"></script>
+<link type="text/css" rel="stylesheet" href="resources/css/style.css"/>
+</head><body>
+<header>
+<div id="modal" class="display-none" role="dialog"
+       aria-modal="true"
+       aria-labelledby="modal-header">
+       <button id="modal-close" type="button" aria-label="Закрыть">X</button>
+<h1 id="modal-header" >Коврик для кота</h1>
+<span>Оформление заказа</span>
+<form id="modalForm" name="order" action="#">
+<span id="modal-text-name">например: Иванов Иван</span>
+<label for="inputOrderName">Ваше имя и фамилия: <input id="inputOrderName" type="text" name="ordername" value="" 
+aria-describedby="modal-text-name"/></label>
+<span id="modal-error-name" ></span>
+               
+<label for="inputOrderEmail">Ваша почта: <input id="inputOrderEmail" type="text" name="orderemail" value=""/></label>
+<span id="modalTextEmail"></span>
+<label for="inputOrderAddress">Адрес доставки: <br/>
+<textarea id="inputOrderAddress" name="address">
+Введите полный почтовый адрес с индексом
+</textarea></label>
+<span id="modalTextAddress"></span>
+<span>Способ оплаты</span>
+<label for="payKash">Наличные: <input id="payKash" type="radio" name="pay" value="kash" /></label>
+<label for="payKart">Картой: <input type="radio" id="payKart" name="pay" value="creditkart" checked /></label>
+<input type="submit" value="Отправить"/>
+</form>
+</div>
+<h1>Рожков Александр</h1>
+<a href="#mainContent">Перейти к основному контенту</a>
+<div id="menu" >
+<nav>
+<a href="index.html">товары для котов</a>
+<a href="page1.html">товары для собак</a>
+<a href="page2.html">товары для лошадей</a>
+<a href="page3.html">товары для черепах</a>
+<a href="page4.html">товары для рыб</a>
+</nav>
+</div>
+<div id="menuUser">
+<a href="page_favorite.html" aria-label="Избранные товары"><img src="resources/img/hart.png" alt=""/></a>
+<a id="cart-link" href="page_cart.html" aria-labelledby="cart-label cart-quontity"><img src="resources/img/cart.png" alt=""/> (<span id="cart-quontity">0</span>)</a>
+<span class="display-none" id="cart-label">Корзина. Количество товаров в корзине: </span>
+</div>
+</header>
+<main id="mainContent">
+<h2>Товары для котов</h2>
+<label id="sort-label">Сортировать по: 
+<div tabindex="0" 
+role="combobox" 
+id="sortCombobox" 
+aria-controls="listbox1" 
+aria-expanded="false" 
+aria-haspopup="listbox" 
+aria-labelledby="sort-label" 
+    aria-activedescendant="item1" >
+</div></label>
+  
+<ul tabindex="-1" 
+  id="listBox1" 
+  role="listbox" 
+  aria-labelledby="sort-label">     
+<li  aria-selected="true" role="option" id="item1">Не сортируется</li> 
+<li  role="option" id="item2">По возрастанию цены</li>
+    <li  role="option" id="item3">по убыванию цены</li>
+</ul>
+<section aria-label="Каталог товаров">
+<ul>
+<div class="display-none">
+<span id="priceText">Цена: </span>
+<span id="priceOldText"> Старая цена: </span>
+<span id="textFavorite">Добавить в избранное </span>
+ <span id="textBuy">Купить </span>
+
+</div>
+<li>
+<img src="resources/img/miska_viped.jpg" alt="пластиковая миска " width="290" height="290"/>
+<h3 id="product1">Миска VIPet для медленного поедания корма</h3>
+<div aria-hidden="true">
+Цена: <span id="priceOldProduct1"><strike>450 р.</strike></span> / <span id="priceProduct1">350 р.</span>
+</div>
+<span class="visually-hidden" aria-labelledby="priceText priceProduct1 priceOldText priceOldProduct1"></span>
+ <button class="btn-favorit" aria-labelledby="textFavorite product1"><img src="resources/img/hart.png" alt=""/></button> 
+ <button class="btn-buy" id="buyProduct1" aria-labelledby="textBuy product1 priceText priceProduct1">Купить</button>
+  </li>
+  <li>
+<img src="resources/img/koktetochka_pepsiki.jpg" alt="Коктеточка клубок для кошек" width="290" height="290"/>
+<h3 id="product2">Динамическая когтеточка Petsiki</h3>
+<div aria-hidden="true">
+Цена: <span id="priceOldProduct2"><strike>300 р.</strike></span> / <span id="priceProduct2">250 р.</span>
+</div>
+<span class="visually-hidden" aria-labelledby="priceText priceProduct2 priceOldText priceOldProduct2"></span>
+ <button class="btn-favorit" aria-labelledby="textFavorite product2"><img src="resources/img/hart.png" alt=""/></button> 
+ <button class="btn-buy" id="buyProduct2" aria-labelledby="textBuy product2 priceText priceProduct2">Купить</button>
+  </li>
+  <li>
+<img src="resources/img/velikiy_kot.jpg" alt="тоннель для кошек" width="290" height="290"/>
+<h3 id="product3">Тоннель «Великий Кот»</h3>
+<div aria-hidden="true">
+Цена: <span id="priceOldProduct3"><strike>750 р.</strike></span> / <span id="priceProduct3">550 р.</span>
+</div>
+<span class="visually-hidden" aria-labelledby="priceText priceProduct3 priceOldText priceOldProduct3"></span>
+ <button class="btn-favorit" aria-labelledby="textFavorite product3"><img src="resources/img/hart.png" alt=""/></button> 
+ <button class="btn-buy" id="buyProduct3" aria-labelledby="textBuy product3 priceText priceProduct3">Купить</button>
+  </li>
+  <li>
+<img src="resources/img/lezhak.jpg" alt="лежак из износостойкого текстиля" width="290" height="290"/>
+<h3 id="product4">Лежак Fauna International Matis</h3>
+<div aria-hidden="true">
+Цена: <span id="priceOldProduct4"><strike>1050 р.</strike></span> / <span id="priceProduct4">850 р.</span>
+</div>
+<span class="visually-hidden" aria-labelledby="priceText priceProduct4 priceOldText priceOldProduct4"></span>
+ <button class="btn-favorit" aria-labelledby="textFavorite product4"><img src="resources/img/hart.png" alt=""/></button> 
+ <button class="btn-buy" id="buyProduct4" aria-labelledby="textBuy product4 priceText priceProduct4">Купить</button>
+  </li>
+    <li>
+<img src="resources/img/gamak.jpg" alt="Кошка в гамаке Triol" width="290" height="290"/>
+<h3 id="product5">Гамак на батарею Triol</h3>
+<div aria-hidden="true">
+Цена: <span id="priceOldProduct5"><strike>1000 р.</strike></span> / <span id="priceProduct5">900 р.</span>
+</div>
+<span class="visually-hidden" aria-labelledby="priceText priceProduct5 priceOldText priceOldProduct5"></span>
+ <button class="btn-favorit" aria-labelledby="textFavorite product5"><img src="resources/img/hart.png" alt=""/></button> 
+ <button class="btn-buy" id="buyProduct5" aria-labelledby="textBuy product5 priceText priceProduct5">Купить</button>
+  </li>
+    <li>
+<img src="resources/img/nakidka.jpg" alt="Накидка в упаковке" width="290" height="290"/>
+<h3 id="product6">Накидка для перевозки животных Pet zoom loungee</h3>
+<div aria-hidden="true">
+Цена: <span id="priceOldProduct6"><strike>900 р.</strike></span> / <span id="priceProduct6">850 р.</span>
+</div>
+<span class="visually-hidden" aria-labelledby="priceText priceProduct6 priceOldText priceOldProduct6"></span>
+ <button class="btn-favorit" aria-labelledby="textFavorite product6"><img src="resources/img/hart.png" alt=""/></button> 
+ <button class="btn-buy" id="buyProduct6" aria-labelledby="textBuy product6 priceText priceProduct6">Купить</button>
+  </li>
+<li>
+<img src="resources/img/matras.jpg" alt="матрас Антицарапки Буги-вуги" width="290" height="290"/>
+<h3 id="product7">Матрас с валерианой — антицарапки «Буги-вуги»</h3>
+<div aria-hidden="true">
+Цена: <span id="priceOldProduct7"><strike>700 р.</strike></span> / <span id="priceProduct7">450 р.</span>
+</div>
+<span class="visually-hidden" aria-labelledby="priceText priceProduct7 priceOldText priceOldProduct7"></span>
+ <button class="btn-favorit" aria-labelledby="textFavorite product7"><img src="resources/img/hart.png" alt=""/></button> 
+ <button class="btn-buy" id="buyProduct7" aria-labelledby="textBuy product7 priceText priceProduct7">Купить</button>
+  </li>
+</ul>
+</section>
+<h2>Видео о товарах для котов</h2>
+<iframe title="видео" 
+        width="560" height="315"
+                src="https://www.youtube.com/embed/HtTyRajRuyY"
+        frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+<h2>Подробнее о товарах для котов</h2>
+</main>
+<footer>
+<h3>Мы в социальных сетях</h3>
+<div>
+<ul>
+<li><a href="mailto:sili87@mail.ru" aria-label="электронная почта"></a></li>
+<li><a href="#" aria-label="Telegram"></a></li>
+<li><a href="#" aria-label="faceBook"></a></li>
+</ul>
+</div>
+<h3>Покупателю</h3>
+<div>
+<ul>
+<li><a href="#">Доставка</a></li>
+<li><a href="#">Оплата</a></li>
+<li><a href="#">Политика конфиденциальности</a></li>
+</ul>
+</div>
+<h3>Подписка на новости</h3>
+<form  id="formSubscribe" action="#">
+<label for="inputEmail"> Email: <input id="inputEmailSubscribe" type="text" name="email" value="" aria-required="true"/></label>
+<label for="checkbox">Согласен на обработку персональных данных: <input id="checkbox" type="checkbox" aria-required="true"/></label>
+<span id="textSubscribe"></span>
+<input  type="submit" value="Подписаться"/>
+</form>
+
+</footer>
+<script language="javascript" src="resources/js/script.js"></script>
 </body>
 </html>
