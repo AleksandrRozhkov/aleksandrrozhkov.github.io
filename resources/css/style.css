@@ -10,3 +10,6 @@ display:none;
         clip: rect(1px, 1px, 1px, 1px);
         white-space: nowrap; /* added line */
     }
+    .display-inline {
+    display:inline;
+    }

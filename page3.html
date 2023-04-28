@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+
+<title>Товары для черепах</title>
+<script language="javascript" src="resources/js/jquery-3.6.4.min.js"></script>
+<link type="text/css" rel="stylesheet" href="resources/css/style.css"/>
+</head><body>
+<header>
+<div id="modal" class="display-none" role="dialog"
+       aria-modal="true"
+       aria-labelledby="modal-header">
+       <button id="modal-close" type="button" aria-label="Закрыть">X</button>
+<h1 id="modal-header" >Коврик для кота</h1>
+<span>Оформление заказа</span>
+<form id="modalForm" name="order" action="#">
+<span id="modal-text-name">например: Иванов Иван</span>
+<label for="inputOrderName">Ваше имя и фамилия: <input id="inputOrderName" type="text" name="ordername" value="" 
+aria-describedby="modal-text-name"/></label>
+<span id="modal-error-name" ></span>
+               
+<label for="inputOrderEmail">Ваша почта: <input id="inputOrderEmail" type="text" name="orderemail" value=""/></label>
+<span id="modalTextEmail"></span>
+<label for="inputOrderAddress">Адрес доставки: <br/>
+<textarea id="inputOrderAddress" name="address">
+Введите полный почтовый адрес с индексом
+</textarea></label>
+<span id="modalTextAddress"></span>
+<span>Способ оплаты</span>
+<label for="payKash">Наличные: <input id="payKash" type="radio" name="pay" value="kash" /></label>
+<label for="payKart">Картой: <input type="radio" id="payKart" name="pay" value="creditkart" checked /></label>
+<input type="submit" value="Отправить"/>
+</form>
+</div>
+<h1>Рожков Александр</h1>
+<a class="skip-link" href="#mainContent">Перейти к основному контенту</a>
+<div id="menu" >
+<nav>
+<a href="index.html">товары для котов</a>
+<a href="page1.html">товары для собак</a>
+<a href="page2.html">товары для лошадей</a>
+<a aria-current="true" href="page3.html">товары для черепах</a>
+<a href="page4.html">товары для рыб</a>
+</nav>
+</div>
+<div id="menuUser">
+<a href="page_favorite.html" aria-label="Избранные товары"><img src="resources/img/hart.png" alt=""/></a>
+<a id="cart-link" href="page_cart.html" aria-labelledby="cart-label cart-quontity"><img src="resources/img/cart.png" alt=""/> (<span id="cart-quontity">0</span>)</a>
+<span class="display-none" id="cart-label">Корзина. Количество товаров в корзине: </span>
+</div>
+</header>

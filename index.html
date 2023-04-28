@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="ru">
 <head>
+<meta charset="UTF-8">
 
 <title>Рожков Александр</title>
 <script language="javascript" src="resources/js/jquery-3.6.4.min.js"></script>
@@ -33,10 +34,10 @@ aria-describedby="modal-text-name"/></label>
 </form>
 </div>
 <h1>Рожков Александр</h1>
-<a href="#mainContent">Перейти к основному контенту</a>
+<a class="skip-link" href="#mainContent">Перейти к основному контенту</a>
 <div id="menu" >
 <nav>
-<a href="index.html">товары для котов</a>
+<a aria-current="true" href="index.html">товары для котов</a>
 <a href="page1.html">товары для собак</a>
 <a href="page2.html">товары для лошадей</a>
 <a href="page3.html">товары для черепах</a>
@@ -55,21 +56,21 @@ aria-describedby="modal-text-name"/></label>
 <div tabindex="0" 
 role="combobox" 
 id="sortCombobox" 
-aria-controls="listbox1" 
+aria-controls="listbox-1" 
 aria-expanded="false" 
 aria-haspopup="listbox" 
 aria-labelledby="sort-label" 
     aria-activedescendant="item1" >
-</div></label>
-  
-<ul tabindex="-1" 
-  id="listBox1" 
+    <ul class="display-none" 
+  id="listBox-1" 
   role="listbox" 
   aria-labelledby="sort-label">     
 <li  aria-selected="true" role="option" id="item1">Не сортируется</li> 
 <li  role="option" id="item2">По возрастанию цены</li>
     <li  role="option" id="item3">по убыванию цены</li>
 </ul>
+</div>
+</label>
 <section aria-label="Каталог товаров">
 <ul>
 <div class="display-none">
@@ -80,8 +81,12 @@ aria-labelledby="sort-label"
 
 </div>
 <li>
-<img src="resources/img/miska_viped.jpg" alt="пластиковая миска " width="290" height="290"/>
+<img src="resources/img/miska_viped.jpg" alt="миска для кошек" width="290" height="290"/>
 <h3 id="product1">Миска VIPet для медленного поедания корма</h3>
+<p>
+Миска V.I.Pet — рельефная игровая миска-рыбки, изготовленная из силикона. С её помощью кошка ест медленее, поэтому снижается вероятность переедания и заглатывания воздуха. Диаметр — 15 см, высота — 4 см. 
+Миска для медленного поедания пищи подходит для кошек и собак В целом, отзывы об этом аксессуарк лишь положительные. Единственный минус — миска скользит по полу, когда кошка пытается добыть пищу.
+</p>
 <div aria-hidden="true">
 Цена: <span id="priceOldProduct1"><strike>450 р.</strike></span> / <span id="priceProduct1">350 р.</span>
 </div>
@@ -92,6 +97,10 @@ aria-labelledby="sort-label"
   <li>
 <img src="resources/img/koktetochka_pepsiki.jpg" alt="Коктеточка клубок для кошек" width="290" height="290"/>
 <h3 id="product2">Динамическая когтеточка Petsiki</h3>
+<p>
+Малая динамическая когтеточка — клубок из джута используется как для игры, так и для заточки когтей питомца. Работает по принципу неваляшки и всегда возвращается в исходное положение. Диаметр — 80 мм. 
+С помощью длинной ручки клубок можно подвешивать либо катать по полу
+</p>
 <div aria-hidden="true">
 Цена: <span id="priceOldProduct2"><strike>300 р.</strike></span> / <span id="priceProduct2">250 р.</span>
 </div>
@@ -102,6 +111,10 @@ aria-labelledby="sort-label"
   <li>
 <img src="resources/img/velikiy_kot.jpg" alt="тоннель для кошек" width="290" height="290"/>
 <h3 id="product3">Тоннель «Великий Кот»</h3>
+<p>
+Тоннель изготовлен из прочной ткани, содержащей шуршащие элементы. Особенность — запах мяты, который, как и шуршание, привлекает питомцев. Он оказывает успокаивающее или, наоборот, возбуждающее действие на кошек. Размер — 22*65 см. 
+Тоннель вызовет неподдельный интерес у кошки, а шуршание просто приведет в восторг Владельцы довольны таким приобретением, так как тоннель отвлекает их питомцев от мебели и обуви.
+</p>
 <div aria-hidden="true">
 Цена: <span id="priceOldProduct3"><strike>750 р.</strike></span> / <span id="priceProduct3">550 р.</span>
 </div>
@@ -112,6 +125,11 @@ aria-labelledby="sort-label"
   <li>
 <img src="resources/img/lezhak.jpg" alt="лежак из износостойкого текстиля" width="290" height="290"/>
 <h3 id="product4">Лежак Fauna International Matis</h3>
+<p>
+Лежак Fauna International Matis — лежак из износостойкого текстиля с бортиками и матрасом. Хорошо держит форму. Размер — 45*45*25 см. 
+В продаже можно встретить лежак для кошек Fauna International Matis в различных цветовых вариациях Лежак — личное место кота, где он может уединиться. 
+Питомцу не приходится занимать хозяйское место в доме либо лежать на холодном полу. Многие заводчики утверждают, что цена товара полностью соответствует его качеству.
+</p>
 <div aria-hidden="true">
 Цена: <span id="priceOldProduct4"><strike>1050 р.</strike></span> / <span id="priceProduct4">850 р.</span>
 </div>
@@ -122,6 +140,10 @@ aria-labelledby="sort-label"
     <li>
 <img src="resources/img/gamak.jpg" alt="Кошка в гамаке Triol" width="290" height="290"/>
 <h3 id="product5">Гамак на батарею Triol</h3>
+<p>
+Гамак на батарею Triol состоит из искусственного меха и металического каркаса и подходит для радиаторов любого размера до 12 см. Размер — 46*30 см. Коты любят тепло и уют, поэтому по достоинству оценят такое изобретение. 
+В интернете много негативных отзывов по поводу того, что гамак плохо держится на батарее и постоянно сваливается. Ещё одним недостатком называют то, что питомцу достаточно сложно самому забраться в это уютноё гнёздышко. Данный гамак имеет крючки-цепления для Тонкой батареи, либо для старой но без защитного экрана, что неудобно. 
+</p>
 <div aria-hidden="true">
 Цена: <span id="priceOldProduct5"><strike>1000 р.</strike></span> / <span id="priceProduct5">900 р.</span>
 </div>
@@ -132,6 +154,10 @@ aria-labelledby="sort-label"
     <li>
 <img src="resources/img/nakidka.jpg" alt="Накидка в упаковке" width="290" height="290"/>
 <h3 id="product6">Накидка для перевозки животных Pet zoom loungee</h3>
+<p>
+Pet zoom loungee — водоотталкивающая накидка из полиэстера размером 142*142 см. Используя её, можно брать питомцев с собой в путешествия и не волноваться о шерсти, грязи, дырах на заднем сиденье автомобиля. 
+Накидка Pet zoom loungee идеально подходит для перевозки в автомобиле как кошек, так и собак Данная накидка пользуется популярностью среди заводчиков домашних питомцев.
+</p>
 <div aria-hidden="true">
 Цена: <span id="priceOldProduct6"><strike>900 р.</strike></span> / <span id="priceProduct6">850 р.</span>
 </div>
@@ -142,6 +168,10 @@ aria-labelledby="sort-label"
 <li>
 <img src="resources/img/matras.jpg" alt="матрас Антицарапки Буги-вуги" width="290" height="290"/>
 <h3 id="product7">Матрас с валерианой — антицарапки «Буги-вуги»</h3>
+<p>
+Антицарапки «Буги-вуги» - красочная квадратная подушечка из велюра, наполненная синтепоном. Сбоку имеется молния, через которую закладывается мята и валериана, идущие в комплекте. Размер — 40*30*3см. Кошка с удовольствием позабавится с такой игрушкой, а также это может решить проблему поцарапанной мебели. 
+При необходимости матрас можно стирать вручную с температурой воды не больше 40 градусов, предварительно вынув синтепон Отзывы о применении этого аксессуара лишь положительные. Многие отмечают высокое качество ткани, которая не линяет и не теряет цвет.
+</p>
 <div aria-hidden="true">
 Цена: <span id="priceOldProduct7"><strike>700 р.</strike></span> / <span id="priceProduct7">450 р.</span>
 </div>
@@ -158,7 +188,37 @@ aria-labelledby="sort-label"
         frameborder="0"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen></iframe>
-<h2>Подробнее о товарах для котов</h2>
+<h2 id="tabs-header" >Подробнее о товарах для котов</h2>
+<div>
+<div id="tabs" role="tablist" 
+aria-labelledby="tabs-header">
+<div id="tab-1" class="display-inline tab" tabindex="0" 
+role="tab" 
+            aria-selected="true" 
+            aria-controls="tabcontent-1">
+Еда для кошек
+</div>
+<div id="tab-2" role="tab" class="display-inline tab" tabindex="-1"
+            aria-controls="tabcontent-2"             >
+Игрушки для кошек
+</div>
+<div id="tab-3" role="tab" class="display-inline tab" tabindex="-1" 
+            aria-controls="tabcontent-3"             >
+для здоровья кошек
+</div>
+</div>
+<div id="tabcontent-1" role="tabpanel" aria-labelledby="tab-1">
+В данном разделе мы поговорим о еде для кошек.
+</div>
+<div id="tabcontent-2" class="display-none" role="tabpanel" aria-labelledby="tab-2">
+В данном разделе мы поговорим о игрушках для кошек.
+</div>
+<div id="tabcontent-3" class="display-none" role="tabpanel" aria-labelledby="tab-3">
+В данном разделе мы поговорим о кошачем здоровье.
+</div>
+</div>
+<div>
+</div>
 </main>
 <footer>
 <h3>Мы в социальных сетях</h3>

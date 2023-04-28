@@ -85,5 +85,39 @@ btn.focus();
 });
 
 });
+//вкладки
+$('.tab').focusin(function () {
+var 	tab = $(this);
+$(document).keyup(function(e) { 
 
+if (e.key === "ArrowUp" || e.keyCode === 38) { 
+	tabp = tab.prev();
+	tabp.focus();
+	if (e.key === "Enter" || e.keyCode === 13) { 
+	tabp.attr('tabindex', '0');
+	tab.attr('tabindex', '-1');
+	tab.attr('aria-selected', null);	
+tabp.attr('aria-selected', 'true');
+return;
+}
+	return;	
+}
+if (e.key === "ArrowDown" || e.keyCode === 40) { 
+	tabn = tab.next();
+	tabn.focus();
+	if (e.key === "Enter" || e.keyCode === 13) { 
+	tabn.attr('tabindex', '0');
+	tab.attr('tabindex', '-1');
+	tab.attr('aria-selected', null);	
+tabn.attr('aria-selected', 'true');
+panelID = tabn.attr('aria-controls');
+	panel = $('#'+panelID);	
+panel.attr('style', 'display:block');
+return;
+}	
+	return;
+}
+});
+
+});
 });
