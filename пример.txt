@@ -1,0 +1,43 @@
+$('li').keydown(function(ev) {
+    if (ev.keyCode === 9) {
+      if (ev.shiftKey) {
+        $(this).parent().prev().focus();
+      } else {
+        ev.preventDefault();
+        $(this).parent().next().focus();
+      }
+    } else if (ev.keyCode === 38) {
+      ev.preventDefault();
+      if ($(this).is(':first-child')) {
+        $(this).siblings(':last-child').focus();
+      } else {
+        $(this).prev().focus();
+      }
+    } else if (ev.keyCode === 40) {
+      ev.preventDefault();
+      if ($(this).is(':last-child')) {
+        $(this).siblings(':first-child').focus();
+      } else {
+        $(this).next().focus();
+      }
+    }
+  })
+  .click(function() { $(this).focus(); })
+  .attr('tabindex', '-1').filter(':first-child').attr('tabindex', '0');li:focus, li:focus-visible, li:active { outline: 2px solid red; }<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<a href="#">useless link</a> <br>
+<a href="#">useless link</a> <br>
+<ul>
+  <li>elem 1</li>
+  <li>elem 2</li>
+  <li>elem 3</li>
+  <li>elem 4</li>
+</ul>
+<a href="#">useless link</a> <br>
+<a href="#">useless link</a> <br>
+<ul>
+  <li>elem 1</li>
+  <li>elem 2</li>
+</ul>
+<a href="#">useless link</a> <br>
+<a href="#">useless link</a> <br>

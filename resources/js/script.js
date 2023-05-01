@@ -1,22 +1,31 @@
 $(document).ready(function () {
-	
-er = 'Ошибка! Вы не заполнили поле Email';
-successSubscribe = 'Спасибо! Вы успешно подписались';
-erCheckbox = 'Ошибка! Вы не согласились с обработкой персональных данных.';
-form = $("#formSubscribe");
-var combobox = $('#sortCombobox');
-
 //обработка комбобокса сортировки
-combobox.on('focus', function () {
+$('#sortCombobox').on ('blur', function () {
+$('#sortCombobox').attr('aria-expanded', 'false');
+$('#listBox-1').attr('class', 'display-none');
+});
+$('#sortCombobox').keyup(function(e) { 
+var list = $('#listBox-1');
+var combo = $('#sortCombobox');
+var items = list.children();
+if (e.key === "ArrowUp" || e.keyCode === 38) { 
+}
+if (e.key === "ArrowDown" || e.keyCode === 40) { 
+combo.attr('aria-expanded', 'true');
+list.attr('class', null);	
+items.first().focus();
 
-//alert ('oki');
-
+}
 });
 //модальное окно
 modal = $('#modal');
 
 //обработка формы подписки
-$(form).on ('submit', function (event) {
+$("#formSubscribe").on ('submit', function (event) {
+	var er = 'Ошибка! Вы не заполнили поле Email';
+var successSubscribe = 'Спасибо! Вы успешно подписались';
+var erCheckbox = 'Ошибка! Вы не согласились с обработкой персональных данных.';
+
 emailSubscribe = $("#inputEmailSubscribe");
 textSubscribe = $('#textSubscribe');
 checkbox = $('#checkbox');
@@ -86,30 +95,47 @@ btn.focus();
 
 });
 //вкладки
-$('.tab').focusin(function () {
-let tab = $(this);
-let tabn ='';
-$(document).keyup(function(e) { 
-if (e.key === "ArrowUp" || e.keyCode === 38) { 
-	tabn = tab.prev();
-	tabn.focus();
+
+$('.tab').keyup(function(e) { 
+ var tab = $(this);
+if (e.key === "ArrowUp" || e.keyCode === 38) { 	
+		$(this).prev().focus();
 }
 if (e.key === "ArrowDown" || e.keyCode === 40) { 
-	tabn = tab.next();
-	tabn.focus();		
+$(this).next().focus();
 }
-if (e.key === "Enter" || e.keyCode === 13) { 
-	tabn.attr ('tabindex', '0');
-	tab.attr ('tabindex', '-1');	
-	tab.attr('aria-selected', null);	
-tabn.attr('aria-selected', 'true');
-panelID = tabn.attr('aria-controls');
-alert (tabn.attr('data-panel-id'));
-	panel = $('#'+panelID);	
-panel.attr('style', 'display:block');
+if (e.key === "Enter" || e.keyCode === 13) { 
+	t = $('.tab[tabindex=0]');
+	tid = t.attr('id');
+	tc = $('#panel-content div[aria-labelledby="' + tid + '"]');
+	tc.attr('class', 'display-none');
+	t.attr ('tabindex', '-1');	
+	t.attr('aria-selected', 'false');	
+tab.attr ('tabindex', '0');
+tab.attr('aria-selected', 'true');
+tabid = tab.attr('id');
+c = $('#panel-content div[aria-labelledby="' + tabid + '"]');
+c.attr('class', null);
+tabinfo = $('#panel-content');
+tabinfo.attr('role', 'alert');
+    		tabinfo.attr('aria-live', 'assertive');    	
+    	
 return;
 }
-});
 
+return;
+});
+//модальная форма
+$('#modal-Form').on ('submit', function (e) {
+name = $('#input-order-name');
+nameErr = $('#modal-error-name');
+nameErr.html('Ошибка! Вы не ввели имя');
+	if (name.length <= 5) {
+    		nameErr.attr('role', 'alert');
+    		nameErr.attr('aria-live', 'assertive');   
+    		name.attr ('aria-invalid', 'true');
+nameErr.html('Ошибка! Вы не ввели имя');
+}	
+return;
 });
 });

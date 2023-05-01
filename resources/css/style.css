@@ -13,3 +13,6 @@ display:none;
     .display-inline {
     display:inline;
     }
+    .btn-favorit, btn-buy {
+    display:block;
+    }

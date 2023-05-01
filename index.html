@@ -14,22 +14,20 @@
        <button id="modal-close" type="button" aria-label="Закрыть">X</button>
 <h1 id="modal-header" >Коврик для кота</h1>
 <span>Оформление заказа</span>
-<form id="modalForm" name="order" action="#">
-<span id="modal-text-name">например: Иванов Иван</span>
-<label for="inputOrderName">Ваше имя и фамилия: <input id="inputOrderName" type="text" name="ordername" value="" 
-aria-describedby="modal-text-name"/></label>
+<form id="modal-Form" name="order" action="#">
+<label for="input-order-name">Ваше имя и фамилия: <input id="input-order-name" type="text" name="ordername" value="Иванов Иван" /></label>
 <span id="modal-error-name" ></span>
                
-<label for="inputOrderEmail">Ваша почта: <input id="inputOrderEmail" type="text" name="orderemail" value=""/></label>
-<span id="modalTextEmail"></span>
-<label for="inputOrderAddress">Адрес доставки: <br/>
-<textarea id="inputOrderAddress" name="address">
+<label for="input-order-email">Ваша почта: <input id="input-order-email" type="text" name="orderemail" value="test@gmail.com"/></label>
+<span id="modal-text-email"></span>
+<label for="input-order-address">Адрес доставки: <br/>
+<textarea id="input-order-address" name="address">
 Введите полный почтовый адрес с индексом
 </textarea></label>
-<span id="modalTextAddress"></span>
+<span id="modal-text-address"></span>
 <span>Способ оплаты</span>
-<label for="payKash">Наличные: <input id="payKash" type="radio" name="pay" value="kash" /></label>
-<label for="payKart">Картой: <input type="radio" id="payKart" name="pay" value="creditkart" checked /></label>
+<label for="pay-kash">Наличные: <input id="pay-kash" type="radio" name="pay" value="kash" /></label>
+<label for="pay-kart">Картой: <input type="radio" id="pay-kart" name="pay" value="creditkart" checked /></label>
 <input type="submit" value="Отправить"/>
 </form>
 </div>
@@ -61,16 +59,16 @@ aria-expanded="false"
 aria-haspopup="listbox" 
 aria-labelledby="sort-label" 
     aria-activedescendant="item1" >
+   
     <ul class="display-none" 
   id="listBox-1" 
   role="listbox" 
   aria-labelledby="sort-label">     
-<li  aria-selected="true" role="option" id="item1">Не сортируется</li> 
-<li  role="option" id="item2">По возрастанию цены</li>
-    <li  role="option" id="item3">по убыванию цены</li>
+<li class="li" aria-selected="true" role="option" id="item1">Не сортируется</li> 
+<li class="li" role="option" id="item2">По возрастанию цены</li>
+    <li class="li" role="option" id="item3">по убыванию цены</li>
 </ul>
-</div>
-</label>
+</div></label>
 <section aria-label="Каталог товаров">
 <ul>
 <div class="display-none">
@@ -90,7 +88,7 @@ aria-labelledby="sort-label"
 <div aria-hidden="true">
 Цена: <span id="priceOldProduct1"><strike>450 р.</strike></span> / <span id="priceProduct1">350 р.</span>
 </div>
-<span role="presentation" class="visually-hidden" aria-labelledby="priceText priceProduct1 priceOldText priceOldProduct1"></span>
+<p class="visually-hidden">Цена: 350 р. | Старая цена: 450 р.</p>
  <button class="btn-favorit" aria-labelledby="textFavorite product1"><img src="resources/img/hart.png" alt=""/></button> 
  <button class="btn-buy" id="buyProduct1" aria-labelledby="textBuy product1 priceText priceProduct1">Купить</button>
   </li>
@@ -104,7 +102,7 @@ aria-labelledby="sort-label"
 <div aria-hidden="true">
 Цена: <span id="priceOldProduct2"><strike>300 р.</strike></span> / <span id="priceProduct2">250 р.</span>
 </div>
-<span class="visually-hidden" aria-labelledby="priceText priceProduct2 priceOldText priceOldProduct2"></span>
+<span class="visually-hidden">Цена: 250 р. | Старая цена: 300 р.</span>
  <button class="btn-favorit" aria-labelledby="textFavorite product2"><img src="resources/img/hart.png" alt=""/></button> 
  <button class="btn-buy" id="buyProduct2" aria-labelledby="textBuy product2 priceText priceProduct2">Купить</button>
   </li>
@@ -118,7 +116,7 @@ aria-labelledby="sort-label"
 <div aria-hidden="true">
 Цена: <span id="priceOldProduct3"><strike>750 р.</strike></span> / <span id="priceProduct3">550 р.</span>
 </div>
-<span class="visually-hidden" aria-labelledby="priceText priceProduct3 priceOldText priceOldProduct3"></span>
+<span class="visually-hidden">Цена: 550 р. | Старая цена: 750 р.</span>
  <button class="btn-favorit" aria-labelledby="textFavorite product3"><img src="resources/img/hart.png" alt=""/></button> 
  <button class="btn-buy" id="buyProduct3" aria-labelledby="textBuy product3 priceText priceProduct3">Купить</button>
   </li>
@@ -133,7 +131,7 @@ aria-labelledby="sort-label"
 <div aria-hidden="true">
 Цена: <span id="priceOldProduct4"><strike>1050 р.</strike></span> / <span id="priceProduct4">850 р.</span>
 </div>
-<span class="visually-hidden" aria-labelledby="priceText priceProduct4 priceOldText priceOldProduct4"></span>
+<span class="visually-hidden">Цена: 850 р. | Старая цена: 1050 р.</span>
  <button class="btn-favorit" aria-labelledby="textFavorite product4"><img src="resources/img/hart.png" alt=""/></button> 
  <button class="btn-buy" id="buyProduct4" aria-labelledby="textBuy product4 priceText priceProduct4">Купить</button>
   </li>
@@ -147,7 +145,7 @@ aria-labelledby="sort-label"
 <div aria-hidden="true">
 Цена: <span id="priceOldProduct5"><strike>1000 р.</strike></span> / <span id="priceProduct5">900 р.</span>
 </div>
-<span class="visually-hidden" aria-labelledby="priceText priceProduct5 priceOldText priceOldProduct5"></span>
+<span class="visually-hidden">Цена: 900 р. | Старая цена: 1000 р.</span>
  <button class="btn-favorit" aria-labelledby="textFavorite product5"><img src="resources/img/hart.png" alt=""/></button> 
  <button class="btn-buy" id="buyProduct5" aria-labelledby="textBuy product5 priceText priceProduct5">Купить</button>
   </li>
@@ -161,7 +159,7 @@ Pet zoom loungee — водоотталкивающая накидка из по
 <div aria-hidden="true">
 Цена: <span id="priceOldProduct6"><strike>900 р.</strike></span> / <span id="priceProduct6">850 р.</span>
 </div>
-<span class="visually-hidden" aria-labelledby="priceText priceProduct6 priceOldText priceOldProduct6"></span>
+<span class="visually-hidden">Цена: 850р. | Старая цена: 900 р.</span>
  <button class="btn-favorit" aria-labelledby="textFavorite product6"><img src="resources/img/hart.png" alt=""/></button> 
  <button class="btn-buy" id="buyProduct6" aria-labelledby="textBuy product6 priceText priceProduct6">Купить</button>
   </li>
@@ -175,7 +173,7 @@ Pet zoom loungee — водоотталкивающая накидка из по
 <div aria-hidden="true">
 Цена: <span id="priceOldProduct7"><strike>700 р.</strike></span> / <span id="priceProduct7">450 р.</span>
 </div>
-<span class="visually-hidden" aria-labelledby="priceText priceProduct7 priceOldText priceOldProduct7"></span>
+<span class="visually-hidden">Цена: 450 р. | Старая цена: 700 р.</span>
  <button class="btn-favorit" aria-labelledby="textFavorite product7"><img src="resources/img/hart.png" alt=""/></button> 
  <button class="btn-buy" id="buyProduct7" aria-labelledby="textBuy product7 priceText priceProduct7">Купить</button>
   </li>
@@ -189,36 +187,100 @@ Pet zoom loungee — водоотталкивающая накидка из по
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen></iframe>
 <h2 id="tabs-header" >Подробнее о товарах для котов</h2>
-<div>
 <div id="tabs" role="tablist" 
 aria-labelledby="tabs-header">
-<div id="tab-1" class="display-inline tab" tabindex="0" 
+<button type="button" id="tab-1" class="display-inline tab" tabindex="0" 
 role="tab" 
             aria-selected="true" 
 aria-controls="tabcontent-1" 
 data-panel-id="tabcontent-1">
 Еда для кошек
-</div>
-<div id="tab-2" role="tab" class="display-inline tab" tabindex="-1"
+</button>
+<button type="button" id="tab-2" role="tab" class="display-inline tab" tabindex="-1" 
             aria-controls="tabcontent-2"             >
 Игрушки для кошек
+</button>
+<button type="button" id="tab-3" role="tab" class="display-inline tab" tabindex="-1" 
+            aria-controls="tabcontent-3">
+здоровье кошек
+</button>
 </div>
-<div id="tab-3" role="tab" class="display-inline tab" tabindex="-1" 
-            aria-controls="tabcontent-3"             >
-для здоровья кошек
-</div>
-</div>
+<div id="panel-content">
 <div id="tabcontent-1" role="tabpanel" aria-labelledby="tab-1">
-В данном разделе мы поговорим о еде для кошек.
+<h4>Еда для кошек</h4>
+<p>
+Еда для кошек должна быть богатой белком и содержать все необходимые питательные вещества, чтобы поддерживать здоровье кошки. Хороший корм для кошек должен
+состоять из высококачественных ингредиентов, включая мясо, рыбу, овощи, фрукты и злаки.
+
+Корма для кошек бывают в трех формах: сухие, влажные и полувлажные. Выбор формы зависит от вкусовых предпочтений кошки, ее возраста и здоровья. От сухих
+кормов кошки часто хотят пить больше воды, поэтому рекомендуется особенно следить за увлажнением.
+
+Важно убедиться, что корм не содержит искусственных красителей, ароматизаторов и консервантов. Они могут быть вредными для здоровья кошки и вызывать аллергические
+реакции.
+
+Если кошка страдает от какой-либо медицинской проблемы, такой как кожные заболевания или проблемы с почками, может потребоваться специальный корм, который
+доставляет дополнительные питательные вещества, необходимые для ее регулярного здоровья.
+
+Важно помнить, что не всегда дешевый корм - это хороший корм. Выбирайте корма от популярных производителей и изучайте состав. В кормах для кошек также
+может быть добавлены витамины и минералы, чтобы улучшить питание.
+
+Убедитесь, что ваша кошка получает достаточно воды. Всегда держите свежую воду в доступе, чтобы кошка могла пить, когда она хочет. Это особенно важно для
+кошек, которые едят сухой корм.
+
+Наконец, не забывайте, что любой переход на новый корм должен происходить постепенно со смешиванием двух типов корма в течение нескольких дней. Также,
+если вы обеспокоены здоровьем кошки или у вас есть какие-либо вопросы о ее питании, посоветуйтесь с ветеринарным врачом.
+
+
+</p>
 </div>
 <div id="tabcontent-2" class="display-none" role="tabpanel" aria-labelledby="tab-2">
-В данном разделе мы поговорим о игрушках для кошек.
+<h4>Игрушки для кошек</h4>
+<p>
+Игрушки для кошек – это важный элемент их активности, поддержания физической формы и развития интеллектуальных способностей. Кошки любят играть с разными
+предметами, от бумажных клубков до мягких игрушек. Среди основных видов игрушек для кошек можно выделить:
+
+ <ul>
+<li>Мячи для игры - это мягкие, легкие и яркие шарики, которые легко катятся и ловят.</li>
+
+<li>Удочки для кошек - это палки со сверкающими, мерцающими или мягкими игрушками на конце. Они часто используются для игр на расстоянии.</li>
+
+<li>Когтеточки и лазалки - это комбинированные конструкции для игры, которые включают в себя волнуемые коврики, когтеточки и игрушки, которые висят на веревочках.</li>
+
+<li>Кубики-игрушки - это мягкие кубики, которые могут быть заполнены кормом или игрушками, чтобы собака могла извлекать их и развивать свою ловкость.</li>
+
+<li>Мягкие игрушки - это мягкие зверюшки или игрушки-подушки, которые могут быть использованы для удовлетворения потребности кошки мягко посидеть или полежать
+во время игры.</li>
+</ul>
+
+Кроме того, существуют различные батарейки для игр – игрушки, которые могут двигаться, изменять свой цвет и звучание, имитировать препятствия и ловушки.
+Важно понимать, что игрушки для кошек должны быть безопасными для здоровья животных, не содержать острые углы, тонкие веревки или мелкие детали, которые
+могут оказаться во рту животного. От выбора игрушек для своих питомцев, от возраста, размера и характера.
+
+
+</p>
 </div>
 <div id="tabcontent-3" class="display-none" role="tabpanel" aria-labelledby="tab-3">
-В данном разделе мы поговорим о кошачем здоровье.
+<h4>Здоровье кошек</h4>
+<p>
+Кошачье здоровье – это важный аспект жизни любой кошки. Здоровье кошки должно быть на первом месте, если вы заботитесь о своем питомце.
+
+Если рассматривать общее здоровье кошек, то основные темы, которые следует учитывать, включают в себя: питание, уход, профилактика различных заболеваний.
+
+Питание: правильное питание – это залог здоровья вашей кошки. Оно должно состоять из высококачественной еды, богатой белками и минералами. Важно, чтобы
+вы обеспечили свою кошку достаточным количеством воды, чтобы она не страдала от обезвоживания. Также не забывайте, что кошки – это хищники, поэтому в их
+рационе должен быть достаточно мяса.
+
+Уход:ть уход за кошкой включает в себя ежедневное расчесывание шерсти, ежемесячное чистку зубов и регулярное обращение к ветеринару для проверки здоровья.
+Также не забывайте об условиях содержания вашей кошки – ее место жительства должно быть чистым и безопасным.
+
+Профилактика: профилактика заболеваний может включать в себя прививки, обработку от паразитов и посещение ветеринара для регулярных осмотров.
+
+Как владелец кошки, необходимо быть внимательным к своему питомцу и следить за изменениями в его поведении, аппетите и активности. Если вы обнаружите какие-либо
+проблемы или озабоченности, обращайтесь к ветеринару, чтобы убедиться в здоровье вашей кошки.
+
+
+</p>
 </div>
-</div>
-<div>
 </div>
 </main>
 <footer>
