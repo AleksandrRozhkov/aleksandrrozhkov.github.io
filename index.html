@@ -14,20 +14,22 @@
        <button id="modal-close" type="button" aria-label="Закрыть">X</button>
 <h1 id="modal-header" >Коврик для кота</h1>
 <span>Оформление заказа</span>
-<form id="modal-Form" name="order" action="#">
-<label for="input-order-name">Ваше имя и фамилия: <input id="input-order-name" type="text" name="ordername" value="Иванов Иван" /></label>
-<span id="modal-error-name" ></span>
-               
-<label for="input-order-email">Ваша почта: <input id="input-order-email" type="text" name="orderemail" value="test@gmail.com"/></label>
-<span id="modal-text-email"></span>
+<form id="modal-Form" name="order" action="page_success.html">
+<label for="input-order-name">Ваше имя и фамилия: <input id="input-order-name" type="text" name="ordername" aria-required="true" aria-describedby="modal-error-name" value="Иванов Иван" /></label>
+<div><span id="modal-error-name" ></span></div>               
+<label for="input-order-email">Ваша почта: <input id="input-order-email" type="text" name="orderemail" aria-required="true" aria-describedby="modal-error-email" value="test@gmail.com"/></label>
+<div><span id="modal-error-email"></span></div>
 <label for="input-order-address">Адрес доставки: <br/>
-<textarea id="input-order-address" name="address">
+<textarea id="input-order-address" name="address" aria-required="true" aria-describedby="modal-error-address" >
 Введите полный почтовый адрес с индексом
 </textarea></label>
-<span id="modal-text-address"></span>
-<span>Способ оплаты</span>
+<div><span id="modal-error-address"></span></div>
+<fieldset>
+<legend>Способ оплаты</legend>
 <label for="pay-kash">Наличные: <input id="pay-kash" type="radio" name="pay" value="kash" /></label>
 <label for="pay-kart">Картой: <input type="radio" id="pay-kart" name="pay" value="creditkart" checked /></label>
+</fieldset>
+<div><span id="modal-error" ></span></div>
 <input type="submit" value="Отправить"/>
 </form>
 </div>
@@ -50,7 +52,7 @@
 </header>
 <main id="mainContent">
 <h2>Товары для котов</h2>
-<label id="sort-label">Сортировать по: 
+<label id="sort-label">Сортировать по: не сортируется </label>
 <div tabindex="0" 
 role="combobox" 
 id="sortCombobox" 
@@ -62,13 +64,12 @@ aria-labelledby="sort-label"
    
     <ul class="display-none" 
   id="listBox-1" 
-  role="listbox" 
-  aria-labelledby="sort-label">     
+  role="listbox"   >
 <li class="li" aria-selected="true" role="option" id="item1">Не сортируется</li> 
 <li class="li" role="option" id="item2">По возрастанию цены</li>
     <li class="li" role="option" id="item3">по убыванию цены</li>
 </ul>
-</div></label>
+</div>
 <section aria-label="Каталог товаров">
 <ul>
 <div class="display-none">
@@ -185,7 +186,8 @@ Pet zoom loungee — водоотталкивающая накидка из по
                 src="https://www.youtube.com/embed/HtTyRajRuyY"
         frameborder="0"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
+        allowfullscreen
+        ></iframe>
 <h2 id="tabs-header" >Подробнее о товарах для котов</h2>
 <div id="tabs" role="tablist" 
 aria-labelledby="tabs-header">

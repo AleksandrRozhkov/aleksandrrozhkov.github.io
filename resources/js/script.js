@@ -1,20 +1,67 @@
 $(document).ready(function () {
 //обработка комбобокса сортировки
+
 $('#sortCombobox').on ('blur', function () {
 $('#sortCombobox').attr('aria-expanded', 'false');
 $('#listBox-1').attr('class', 'display-none');
 });
+
 $('#sortCombobox').keyup(function(e) { 
 var list = $('#listBox-1');
 var combo = $('#sortCombobox');
 var items = list.children();
+items.first().focus();
+if (combo.attr('aria-expanded') === 'true') {
+	if (e.key === "ArrowUp" || e.keyCode === 38) { 
+	current = combo.attr('aria-activedescendant');
+	i = $('#' + current);
+	
+	i.attr('aria-selected', null);
+	n = i.prev();
+	n.attr('aria-selected', 'true');
+	combo.attr('aria-activedescendant', n.attr('id'));
+	n.focus();
+		
+	}
+	if (e.key === "ArrowDown" || e.keyCode === 40) { 
+	current = combo.attr('aria-activedescendant');
+	i = $('#' + current);
+
+	i.attr('aria-selected', null);
+	n = i.next();
+	n.attr('aria-selected', 'true');
+	combo.attr('aria-activedescendant', n.attr('id'));
+	n.focus();
+	}
+	if (e.key === "Enter" || e.keyCode === 13) { 
+		
+combo.attr('aria-expanded', 'false');
+list.attr('class', 'display-none');	
+	say = $('#sort-label');
+	say.attr('aria-live', null);
+	current = combo.attr('aria-activedescendant');
+	i = $('#' + current);
+say.attr('aria-live', 'assertive');
+	msg = 'Сортировать по: ' + i.html();
+	say.html(msg);
+
+	}
+}
+else {
 if (e.key === "ArrowUp" || e.keyCode === 38) { 
+	combo.attr('aria-expanded', 'true');
+list.attr('class', null);	
+
 }
 if (e.key === "ArrowDown" || e.keyCode === 40) { 
 combo.attr('aria-expanded', 'true');
 list.attr('class', null);	
-items.first().focus();
-
+}
+if (e.key === "Enter" || e.keyCode === 13) { 
+combo.attr('aria-expanded', 'true');
+list.attr('class', null);	
+	
+}
 }
 });
 //модальное окно
@@ -117,7 +164,7 @@ tabid = tab.attr('id');
 c = $('#panel-content div[aria-labelledby="' + tabid + '"]');
 c.attr('class', null);
 tabinfo = $('#panel-content');
-tabinfo.attr('role', 'alert');
+
     		tabinfo.attr('aria-live', 'assertive');    	
     	
 return;
@@ -127,15 +174,69 @@ return;
 });
 //модальная форма
 $('#modal-Form').on ('submit', function (e) {
-name = $('#input-order-name');
-nameErr = $('#modal-error-name');
-nameErr.html('Ошибка! Вы не ввели имя');
-	if (name.length <= 5) {
-    		nameErr.attr('role', 'alert');
-    		nameErr.attr('aria-live', 'assertive');   
+	var name = $('#input-order-name');
+var nameErr = $('#modal-error-name');
+var email = $('#input-order-email');
+var emailErr = $('#modal-error-email');
+var address = $('#input-order-address');
+var addressErr = $('#modal-error-address');
+var error = $('#modal-error');
+var ctn = 0;
+error.attr('role', null);
+    		error.attr('aria-live', null);
+
+if (name.val().length === 0) {
+			name.attr ('aria-invalid', 'true');
+		
+		nameErr.html('Вы не ввели имя.');
+		
+ctn = ctn + 1;
+}
+else 	if ((name.val().length >= 1) && (name.val().length <= 5)) {
     		name.attr ('aria-invalid', 'true');
-nameErr.html('Ошибка! Вы не ввели имя');
+    		nameErr.html('Вы ввели слишком короткое имя.');
+ctn = ctn + 1;
 }	
-return;
+else {
+			name.attr ('aria-invalid', 'false');
+    			nameErr.html('');
+	}
+	if (email.val().length === 0) {
+			email.attr ('aria-invalid', 'true');
+					emailErr.html('Вы не ввели email.');
+ctn = ctn + 1;
+}
+else 	if ((email.val().length >= 1) && (email.val().length <= 5)) {
+    		email.attr ('aria-invalid', 'true');
+    				emailErr.html('Вы ввели слишком короткий email.');
+ctn = ctn + 1;
+}	
+else {
+			email.attr ('aria-invalid', 'false');
+    			emailErr.html('');
+	}
+if (address.val().length === 0) {
+			address.attr ('aria-invalid', 'true');
+					addressErr.html('Вы не ввели адрес!');
+ctn = ctn + 1;
+}
+else 	if ((address.val().length >= 1) && (address.val().length <= 5)) {
+    		address.attr ('aria-invalid', 'true');
+    				addressErr.html('Вы ввели слишком короткий адрес!');
+ctn = ctn + 1;
+}	
+else {
+			address.attr ('aria-invalid', 'false');
+    			addressErr.html('');
+	}
+
+	if (ctn > 0) {
+error.attr('role', 'alert');
+    		error.attr('aria-live', 'assertive');
+    	error.html('Форма была заполнена некорректно! Исправте ошибки и повторите попытку.');
+	}
+	else
+		return true;
+return false;
 });
 });
