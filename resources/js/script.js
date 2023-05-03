@@ -77,19 +77,25 @@ emailSubscribe = $("#inputEmailSubscribe");
 textSubscribe = $('#textSubscribe');
 checkbox = $('#checkbox');
 
-
+emailSubscribe.attr('aria-invalid', null);
+    		checkbox.attr('aria-invalid', null);
     if (emailSubscribe.val().length === 0) {
     		textSubscribe.attr('role', 'alert');
     		textSubscribe.attr('aria-live', 'assertive');   
+    		emailSubscribe.attr('aria-invalid', 'true');
 textSubscribe.html(er);
 }	
 else if (!checkbox.is(':checked')) {
 	textSubscribe.attr('role', 'alert');
-    		textSubscribe.attr('aria-live', 'assertive');    	
+    		textSubscribe.attr('aria-live', 'assertive');    	    	
+    		checkbox.attr('aria-invalid', 'true');
 textSubscribe.html(erCheckbox);
 }
-else
+else {
 		textSubscribe.html(successSubscribe );
+	emailSubscribe.attr('aria-invalid', null);	
+	emailSubscribe.val('');
+	}
 	return false;
 });
 //добавляем в избранное
